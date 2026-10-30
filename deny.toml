@@ -1,0 +1,36 @@
+# cargo-deny configuration. License policy: see CLAUDE.md "Dependency and code-provenance rules".
+# Adding any license to `allow` requires owner approval.
+
+[graph]
+all-features = true
+
+[advisories]
+version = 2
+yanked = "deny"
+
+[licenses]
+version = 2
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+    "Unicode-DFS-2016",
+    "CC0-1.0",
+]
+confidence-threshold = 0.93
+
+[licenses.private]
+# Workspace crates are publish = false and all-rights-reserved (license-file = COPYRIGHT).
+ignore = true
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]

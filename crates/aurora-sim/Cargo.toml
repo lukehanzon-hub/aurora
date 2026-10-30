@@ -1,0 +1,11 @@
+[package]
+name = "aurora-sim"
+description = "Simulation orchestrator, Monte Carlo dispersions, and landing ellipse."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

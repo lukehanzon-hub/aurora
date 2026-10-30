@@ -1,0 +1,11 @@
+[package]
+name = "aurora-vehicle"
+description = "Component tree, time-varying mass properties, and stage definitions."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

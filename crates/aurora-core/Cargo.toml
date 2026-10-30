@@ -1,0 +1,11 @@
+[package]
+name = "aurora-core"
+description = "State, quaternions, reference frames, adaptive RK45 integration, and event detection."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

@@ -1,0 +1,11 @@
+[package]
+name = "aurora-prop"
+description = "Thrust curves (.eng/.rse) and solid-motor internal ballistics."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

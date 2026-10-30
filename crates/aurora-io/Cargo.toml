@@ -1,0 +1,11 @@
+[package]
+name = "aurora-io"
+description = "Import/export: .ork, .CDX1, .ric, CSV, HDF5."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

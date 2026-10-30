@@ -1,0 +1,11 @@
+[package]
+name = "aurora-aero"
+description = "Component-buildup aerodynamics with regime switching over Mach 0-5."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

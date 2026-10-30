@@ -1,0 +1,11 @@
+# Rust build output
+/target/
+**/*.rs.bk
+*.pdb
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,11 @@
+[package]
+name = "aurora-atmo"
+description = "US Standard Atmosphere 1976 (to 86 km), wind, and turbulence models."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

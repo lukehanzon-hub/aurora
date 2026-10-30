@@ -1,0 +1,11 @@
+[package]
+name = "aurora-gnc"
+description = "Sensor models, estimation, control, actuator dynamics, and SIL interface."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]

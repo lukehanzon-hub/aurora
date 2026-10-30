@@ -1,0 +1,11 @@
+[package]
+name = "aurora-app"
+description = "AURORA desktop application (egui/eframe UI and wgpu 3D replay)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license-file.workspace = true
+publish = false
+
+[dependencies]
