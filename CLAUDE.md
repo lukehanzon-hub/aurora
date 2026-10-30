@@ -12,7 +12,8 @@ OpenRocket, RockSim, RASAero II, and openMotor:
 - Future: STL/3D CAD import, live simulation
 
 ## Status
-- Repo state: new, empty private GitHub repo (blank slate). Owner: lukehanzon-hub.
+- Repo state: private GitHub repo lukehanzon-hub/aurora. Workspace scaffold and CI
+  committed (first-session tasks done); P0 physics not started.
 - Naming (decided): AURORA = the flight simulator. ARCTAS = the owner's separate flight
   computer project. Do not mix ARCTAS firmware code into AURORA crates.
   ARCTAS is a future SIL/HIL integration target for aurora-gnc.
@@ -32,7 +33,9 @@ OpenRocket, RockSim, RASAero II, and openMotor:
   the owner relicensing rights. Flag any PR from someone else.
 
 ## Dependency and code-provenance rules (protect relicensing freedom)
-- Allowed dependency licenses: MIT, Apache-2.0, BSD-2/3, ISC, Zlib, Unicode-DFS, CC0.
+- Allowed dependency licenses: MIT, Apache-2.0, Apache-2.0 WITH LLVM-exception, BSD-2/3,
+  ISC, Zlib, Unicode-DFS-2016, Unicode-3.0, CC0. (LLVM-exception and Unicode-3.0
+  owner-approved 2026-10-29.)
 - Forbidden: GPL, LGPL, AGPL, MPL (unless owner approves), SSPL, any non-commercial license.
 - Enforce with `cargo-deny` (deny.toml with the allowlist above) in CI from day one.
 - OpenRocket and openMotor are GPL-licensed. Do NOT copy, translate, or port their source code.
@@ -58,7 +61,7 @@ Engineering methods with explicit validity envelopes, not CFD.
 - Aeroheating at M3–5 (fin leading edges, nose tip) is relevant but deferred: optional
   Eckert reference-temperature skin heating in a later phase.
 
-## Proposed workspace layout (proposal — confirm before building)
+## Workspace layout (confirmed by owner 2026-10-29; scaffolded under crates/)
 | Crate | Responsibility |
 |---|---|
 | aurora-core | State, quaternions, frames (body/NED/ECEF/ECI), adaptive RK45, event detection |
@@ -112,9 +115,11 @@ Rules for validation data:
 - Store each dataset as text (CSV) with a header block: source citation, report number,
   page/figure/table, Reynolds number / test conditions, units, and digitization notes.
 - Match Reynolds number to the test conditions when comparing (wind tunnel ≠ flight Re).
-- The harness reports error per Mach point and per regime, with pass/fail thresholds
-  agreed with the owner (proposed starting point: CD ±10% subsonic/supersonic,
-  ±20% transonic; CP ±0.25 caliber).
+- The harness reports error per Mach point and per regime against these pass/fail
+  thresholds (decided by owner 2026-10-29):
+  - CD within ±10% subsonic (M < 0.8) and supersonic (M 1.2–5.0)
+  - CD within ±20% transonic (M 0.8–1.2)
+  - CP within ±0.25 caliber (a quarter of the reference body diameter)
 
 ## First-session tasks
 1. Confirm the repo is private (`gh repo view --json visibility`). Stop if it is public.
@@ -126,10 +131,13 @@ Rules for validation data:
    minutes are limited on free plans — keep the workflow lean.
 5. Commit, then ask the owner before starting P0 physics.
 
+## Active control priority (decided by owner 2026-10-29)
+1. Roll control
+2. Canards
+3. TVC
+
 ## Open questions for the owner
-1. Validation pass/fail thresholds (proposed values above)
-2. Active control priority (canards, TVC, or roll) and whether controllers are native Rust
-   or external SIL code (e.g. ARCTAS firmware logic)
+1. Whether controllers are native Rust or external SIL code (e.g. ARCTAS firmware logic)
 
 ## Owner preferences
 - Honest, direct assessment; state uncertainty explicitly
